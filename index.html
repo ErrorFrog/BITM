@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Fading Button Example</title>
+    <style>
+        body {
+            background-color: white;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .button {
+            padding: 20px;
+            font-size: 20px;
+            background-color: blue;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 1s ease-in-out;
+        }
+
+        .button.fade-out {
+            background-color: black;
+        }
+
+        .button.fade-in {
+            background-color: red;
+        }
+    </style>
+</head>
+<body>
+    <button class="button" id="fadeButton">Click me!</button>
+
+    <script>
+        const fadeButton = document.getElementById("fadeButton");
+
+        fadeButton.addEventListener("click", function() {
+            fadeButton.classList.add("fade-out");
+            setTimeout(function() {
+                fadeButton.innerHTML = "New Button";
+                fadeButton.classList.remove("fade-out");
+                fadeButton.classList.add("fade-in");
+            }, 1000); // Adjust the delay as needed
+        });
+    </script>
+</body>
+</html>
