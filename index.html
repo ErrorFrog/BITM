@@ -4,7 +4,7 @@
   <title>How to Make a Bomb</title>
   <style>
     body {
-      background-color: #f5f5f5;
+      background-color: #1e1e1e;
       font-family: sans-serif;
       margin: 0;
       padding: 20px;
@@ -13,18 +13,34 @@
     h1 {
       text-align: center;
       margin-bottom: 30px;
+      color: white;
     }
 
     h2 {
       margin-top: 40px;
+      color: white;
     }
 
     ul {
       margin-left: 20px;
     }
 
-    .step {
+    .step-card {
+      background-color: #2e2e2e;
+      color: white;
+      padding: 20px;
       margin-bottom: 20px;
+      border-radius: 10px;
+    }
+
+    .step-number {
+      font-size: 24px;
+      font-weight: bold;
+      margin-bottom: 10px;
+    }
+
+    .step-description {
+      margin-top: 10px;
     }
 
     .material {
@@ -41,50 +57,72 @@
       color: #008000;
       font-weight: bold;
     }
+
+    .next-button {
+      display: block;
+      margin: 20px auto;
+      padding: 10px 20px;
+      background-color: #800080;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
   </style>
 </head>
 <body>
   <h1>How to Make a Bomb</h1>
 
-  <h2>Materials Required</h2>
-  <ul>
-    <li class="material">Explosive</li>
-    <li class="material">Timer</li>
-    <li class="material">Trigger mechanism</li>
-    <li class="material">Safe container</li>
-  </ul>
-
-  <h2>Step-by-Step Instructions</h2>
-  <div class="step">
-    <h3>Step 1: Choose an Explosive</h3>
-    <p>Select an explosive that meets your desired strength and safety requirements. Common options include grenades, dynamite, and TNT. The best explosive for making a bomb is <span class="best-explosive">TNT</span>, which is widely available and safe to use.</p>
+  <div class="step-card">
+    <span class="step-number">1</span>
+    <h3>Choose an Explosive</h3>
+    <p class="step-description">Select an explosive that meets your desired strength and safety requirements. Common options include grenades, dynamite, and TNT. The best explosive for making a bomb is <span class="best-explosive">TNT</span>, which is widely available and safe to use.</p>
   </div>
 
-  <div class="step">
-    <h3>Step 2: Prepare the Explosive</h3>
-    <p>Carefully prepare the explosive by following the instructions provided with the explosive. This may involve priming, inserting the fuse, and setting the explosive in the safe container. To get TNT, you can buy it from a legitimate distributor or dealer.</p>
+  <div class="step-card">
+    <span class="step-number">2</span>
+    <h3>Prepare the Explosive</h3>
+    <p class="step-description">Carefully prepare the explosive by following the instructions provided with the explosive. This may involve priming, inserting the fuse, and setting the explosive in the safe container. To get TNT, you can buy it from a legitimate distributor or dealer.</p>
   </div>
 
-  <div class="step">
-    <h3>Step 3: Set up the Timer</h3>
-    <p>Set up a timer to count down the time until the explosive detonates. Use a reliable timer that can be adjusted to the desired time. A simple timer with a digital display can be used for this purpose.</p>
+  <div class="step-card">
+    <span class="step-number">3</span>
+    <h3>Set up the Timer</h3>
+    <p class="step-description">Set up a timer to count down the time until the explosive detonates. Use a reliable timer that can be adjusted to the desired time. A simple timer with a digital display can be used for this purpose.</p>
   </div>
 
-  <div class="step">
-    <h3>Step 4: Set up the Trigger</h3>
-    <p>Choose a trigger mechanism that will activate the explosive when the timer reaches zero. This could be a remote control, a button, or a motion sensor. A simple button or switch can be used for this purpose.</p>
+  <div class="step-card">
+    <span class="step-number">4</span>
+    <h3>Set up the Trigger</h3>
+    <p class="step-description">Choose a trigger mechanism that will activate the explosive when the timer reaches zero. This could be a remote control, a button, or a motion sensor. A simple button or switch can be used for this purpose.</p>
   </div>
 
-  <div class="step">
-    <h3>Step 5: Test the Bomb</h3>
-    <p>Test the bomb by setting it off and observing the results. If the bomb explodes as expected, you can proceed to the next step.</p>
+  <div class="step-card">
+    <span class="step-number">5</span>
+    <h3>Test the Bomb</h3>
+    <p class="step-description">Test the bomb by setting it off and observing the results. If the bomb explodes as expected, you can proceed to the next step.</p>
   </div>
 
-  <div class="step">
-    <h3>Step 6: Dispose of the Bomb</h3>
-    <p>After the bomb has been safely tested, dispose of it in a proper manner. Handling or storing the bomb improperly can result in an explosion. Proper disposal includes removing the fuse and cleaning up any debris before disposing of the bomb properly.</p>
+  <div class="step-card">
+    <span class="step-number">6</span>
+    <h3>Dispose of the Bomb</h3>
+    <p class="step-description">After the bomb has been safely tested, dispose of it in a proper manner. Handling or storing the bomb improperly can result in an explosion. Proper disposal includes removing the fuse and cleaning up any debris before disposing of the bomb properly.</p>
   </div>
 
   <p class="warning">Remember to practice caution and use common sense when handling explosives. Always keep your hands and eyes away from the bomb and the detonator.</p>
+
+  <button class="next-button">Next Step</button>
+
+  <script>
+    const nextButton = document.querySelector('.next-button');
+    const stepCards = document.querySelectorAll('.step-card');
+    let currentStep = 0;
+
+    nextButton.addEventListener('click', () => {
+      stepCards[currentStep].style.display = 'none';
+      currentStep = (currentStep + 1) % stepCards.length;
+      stepCards[currentStep].style.display = 'block';
+    });
+  </script>
 </body>
 </html>
